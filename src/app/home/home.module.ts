@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Camera } from '@ionic-native/camera/ngx';
@@ -20,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [HomeComponent, EditProfileComponent],
-  imports: [IonicModule, RouterModule.forChild(routes)],
+  imports: [IonicModule, RouterModule.forChild(routes), CommonModule],
   providers: [Camera],
 })
 export class HomeModule {}

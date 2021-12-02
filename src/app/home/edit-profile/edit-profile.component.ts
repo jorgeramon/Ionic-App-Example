@@ -7,6 +7,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent {
+  image: string;
+
   constructor(private camera: Camera) {}
 
   takePicture() {
@@ -22,7 +24,7 @@ export class EditProfileComponent {
         // imageData is either a base64 encoded string or a file URI
         // If it's base64 (DATA_URL):
         let base64Image = 'data:image/jpeg;base64,' + imageData;
-        console.log(base64Image);
+        this.image = base64Image;
       },
       (err) => {
         // Handle error

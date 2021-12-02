@@ -13,5 +13,11 @@
       <ion-label>Picture</ion-label>
       <ion-button (click)="takePicture()">Open Camera</ion-button>
     </ion-item>
+
+    <ion-item *ngIf="image">
+      <ion-avatar>
+        <img [src]="image" />
+      </ion-avatar>
+    </ion-item>
   </form>
 </ion-content>
