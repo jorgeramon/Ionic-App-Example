@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { UserService } from '../services/user.service';
 import { RegisterComponent } from './register.component';
-import { RegisterService } from './services/register.service';
 
 const routes: Routes = [
   {
@@ -21,6 +21,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HttpClientModule,
   ],
-  providers: [RegisterService],
+  providers: [UserService],
 })
 export class RegisterModule {}

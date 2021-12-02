@@ -1,1 +1,15 @@
-<ion-button expand="full" (click)="increment()">Clicks: {{ counter }}</ion-button>
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="feed">
+        <ion-icon name="newspaper-outline"></ion-icon>
+        <ion-label>Feed</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="edit-profile">
+        <ion-icon name="pencil-outline"></ion-icon>
+        <ion-label>Edit Profile</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

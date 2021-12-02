@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RegisterService } from './services/register.service';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -11,13 +13,32 @@ export class RegisterComponent {
   email: string;
   password: string;
 
-  constructor(private registerService: RegisterService) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private alertController: AlertController
+  ) {}
 
   registerUser() {
-    this.registerService
-      .registerAPI(this.username, this.email, this.password)
-      .subscribe((response) => {
-        console.log(response);
-      });
+    this.userService
+      .register(this.username, this.email, this.password)
+      .subscribe(
+        async (response) => {
+          const alert = await this.alertController.create({
+            message: 'Account created successfully!',
+          });
+
+          await alert.present();
+
+          this.router.navigate(['/login']);
+        },
+        async () => {
+          const alert = await this.alertController.create({
+            message: 'Error, an unexpected error ocurred',
+          });
+
+          await alert.present();
+        }
+      );
   }
 }
